@@ -29,5 +29,9 @@ void loop() {
         if(digitalRead(1, HIGH) && a< aMax){
             a+=500;
         }
+        if(i=50){
+            i=0;
+            delay(1000);
+        }
     }
 
