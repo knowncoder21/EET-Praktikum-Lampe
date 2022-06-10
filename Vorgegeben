@@ -1,28 +1,37 @@
 BlinkEnde_LED.ino
 
 void setup ( ) {
-pinMode(1, INPUT);
+pinMode(1,INPUT);
 pinMode(0,INPUT);
 pinMode(3,OUTPUT);
-int a;
+pinMode(9,INPUT);
+attachInterrupt(didittalPinToInterrupt(9),loop,CHANGE);
+
+int a;      // Werte vor Ort festlegen
 int aMax;
 int aMin;
+int i = 0;
 }
-
+// Dimmen mit min./max. Zündwinkel
 void loop() {
-         if(digitalRead(6,HIGH)){
-            delay(a);
+         if(digitalRead(9,HIGH)){
+            i++;
+            delayMicroseconds(a);
             digitalWrite(3,HIGH);
             delayMicroseconds(10);
             digitalWrite(3,LOW);
         }
+        
         if(digitalRead(0,HIGH) && a> aMin){
-            a-=50;
+            a-=500;
 
         }
         if(digitalRead(1, HIGH) && a< aMax){
-            a+=50;
+            a+=500;
         }
-        
+        if(i=50){
+            i=0;
+            delay(1000);
+        }
     }
 
