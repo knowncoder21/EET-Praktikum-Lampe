@@ -5,7 +5,7 @@ pinMode(1,INPUT);
 pinMode(0,INPUT);
 pinMode(3,OUTPUT);
 pinMode(9,INPUT);
-attachInterrupt(didittalPinToInterrupt(9),loop,CHANGE);
+attachInterrupt(digitalPinToInterrupt(9),loop,CHANGE);
 
 int a;      // Werte vor Ort festlegen
 int aMax;
